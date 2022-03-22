@@ -44,8 +44,7 @@ impl IdentityWasm {
     pub fn get_public_keys(&self) -> Vec<JsValue> {
         self.0
             .get_public_keys()
-            .clone()
-            .into_iter()
+            .iter()
             .map(|v| JsValue::from_serde(v).expect("unable to convert pub keys"))
             .collect()
     }
